@@ -6,7 +6,7 @@ let categories={
         type:"Trending"
     },{
         id:2,
-        img:"/images/trend2.png",
+        img:"/images/demo1.jpg",
         description: "Sam Altman urges users to slow down as Ghibli trend takes over internet: 'Our team needs sleep",
         type:"Trending"
     },{
@@ -138,7 +138,7 @@ let categories={
         type:"Tech"
     },{
         id:8,
-        img:"/images/tech8.jpg",
+        img:"/images/demotech.jpg",
         description: "Google's Gemini 2.5 Pro model is now available for free users: What's new",
         type:"Tech"
     },{

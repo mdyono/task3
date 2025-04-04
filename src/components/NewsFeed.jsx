@@ -4,6 +4,7 @@ import { FaNewspaper ,FaHome,FaArrowCircleUp,FaArrowCircleDown} from "react-icon
 import { IoReloadCircleSharp } from "react-icons/io5";
 import { FcLike , FcLikePlaceholder} from "react-icons/fc";
 import { FastAverageColor } from "fast-average-color";
+// import { IoIosMore } from "react-icons/io";
 
 
 import '../CSS/newsfeed.css'
@@ -13,7 +14,9 @@ const NewsFeed = () => {
     let [currentIndex, setCurrentIndex] = useState(0);
     let [like,setlike]=useState(false);
     const [bgColor, setBgColor] = useState("grey"); 
+    const [showMore, setShowMore] = useState(false);
     const items = categories[category];
+    const maxLength = 80;
 
     useEffect(() => {
       const fac = new FastAverageColor();
@@ -37,15 +40,16 @@ const NewsFeed = () => {
         prevIndex === 0 ? items.length - 1 : prevIndex - 1
       );
     };
+
   return (
     <div className='body' style={{ backgroundColor: bgColor }}>
         <div className='navbar'>
           <div className='logo'>
-            <div><FaNewspaper size={40} color='white'/>  </div>
-            <div className='title'>NewsFeed</div>
+            <div className='logo1'><FaNewspaper size={40} color='grey'/><div className='title'>NewsFeed</div></div>
+            
           
             <div className='homelogo' onClick={()=>{window.location.reload()}}>
-            <FaHome size={40} color='white'/>
+            <FaHome size={40} color='grey'/>
             </div>
            </div>
            <div className='navbody'>
@@ -59,23 +63,38 @@ const NewsFeed = () => {
           {
             items.length>0 && (
               <>
-              <h1 className='btitle'>{category.toUpperCase()}</h1>
+              <h1 className='btitle'>{items[currentIndex].type}</h1>
                 <div className='mainbody'>
-                  <div className='imgcard' style={{ backgroundColor: "white"} }>
-                    <div className='imgtitle'>
-                      <h1>{items[currentIndex].type}</h1>
-                    </div>
-                    <div className='image1'>
-                      <img src={items[currentIndex].img} alt="" />
-                    </div>
+                  <div className='imgcard'style={{
+    backgroundColor: "white",
+    backgroundImage: `url(${items[currentIndex].img})`,
+    backgroundSize: "cover", 
+    backgroundPosition: "center",
+    objectFit:"fill"
+     
+  }}>
+                    {
                     <div className='imgdescription'>
-                          <p>{items[currentIndex].description}</p>
-                    </div>
+                      <p> {showMore ? items[currentIndex].description 
+                  : items[currentIndex].description.substring(0, maxLength)+"..." }
+                  {items[currentIndex].description.length > maxLength && (
+                    <button style={{color:"blue",
+                    borderRadius:"20px",
+                    height:"23px",
+                    marginLeft:"10px",
+                    width:"90px",
+                    border:"none"}} onClick={() => setShowMore(!showMore)}>
+                        {showMore ? "Show Less" :  "Show More"}
+                    </button>
+                )}</p>
+                  
+                          
+                    </div> }
                   </div>
                   <div className='btns'>
                     <button onClick={()=>{like?setlike(false):setlike(true)}}>{like?<FcLike size={30}/>:<FcLikePlaceholder size={30}/>}</button>
-                  <button onClick={()=>{handlePrev();setlike(false)}}><FaArrowCircleUp size={25}/></button>
-                  <button onClick={()=>{handleNext();setlike(false)}}><FaArrowCircleDown size={25}/></button>
+                  <button onClick={()=>{handlePrev();setlike(false);setShowMore(false)}}><FaArrowCircleUp size={25}/></button>
+                  <button onClick={()=>{handleNext();setlike(false);setShowMore(false)}}><FaArrowCircleDown size={25}/></button>
                   <button onClick={()=>{window.location.reload()}}><IoReloadCircleSharp size={30} /></button>
                   </div>
 
