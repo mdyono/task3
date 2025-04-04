@@ -45,11 +45,11 @@ const NewsFeed = () => {
     <div className='body' style={{ backgroundColor: bgColor }}>
         <div className='navbar'>
           <div className='logo'>
-            <div className='logo1'><FaNewspaper size={40} color='grey'/><div className='title'>NewsFeed</div></div>
+            <div className='logo1'><FaNewspaper style={{fontSize: "200%"}} color='grey'/><div className='title'>NewsFeed</div></div>
             
           
             <div className='homelogo' onClick={()=>{window.location.reload()}}>
-            <FaHome size={40} color='grey'/>
+            <FaHome style={{fontSize: "200%"}} color='grey'/>
             </div>
            </div>
            <div className='navbody'>

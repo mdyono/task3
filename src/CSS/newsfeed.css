@@ -164,13 +164,26 @@
 }
 
 @media (max-width: 768px) {
+    .navbar{
+        height: 15%;
+        width: 100%;
+    }
+    .navcard{
+        font-size: 88%;
+        padding: 0px 20px;
+        border-radius: 20px;
+        /* border: 2px solid red; */
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
     .mainbody{
         /* border: 2px solid green; */
         /* margin-left: 12%; */
         height: 90%;
         width: 200%;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
+        gap: 5%;
         align-items: center;
         flex-direction: column;
     }
@@ -187,9 +200,17 @@
      }
     .imgcard{
         width: 55%;
+        height: 60% ;
     } 
     .btitle{
         width:60%;
+        margin-top: 0%;
+        height: 3% ;
         margin-left: 25%; 
+        font-size: 150%;
+  font-weight: 400;
+  text-align: center;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  width: 50%;
     }
 }
