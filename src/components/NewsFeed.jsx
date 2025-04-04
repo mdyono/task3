@@ -83,7 +83,8 @@ const NewsFeed = () => {
                     height:"23px",
                     marginLeft:"10px",
                     width:"90px",
-                    border:"none"}} onClick={() => setShowMore(!showMore)}>
+                    border:"none",
+                    backgroundColor:" rgba(255, 255, 255, 0.2)"}} onClick={() => setShowMore(!showMore)}>
                         {showMore ? "Show Less" :  "Show More"}
                     </button>
                 )}</p>
