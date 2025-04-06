@@ -6,7 +6,6 @@
 .body{
     height: 100vh;
     width: 100%;
-    /* border: 2px solid red; */
     display: flex;
     transition: background-color 0.5s ease-in-out,
      background-image 0.5s ease-in-out;
@@ -16,15 +15,28 @@
 }
 
 .navbar{
-    height: 20%;
+    height: 10%;
     width: 100%;
      background-color: white;
-     overflow-y: hidden;
-
+    padding-top: 1%;
      overflow: hidden;
+     scroll-behavior: smooth;
      white-space: nowrap;
      scrollbar-width: none;
-     /* max-height: 20%; */
+     display: flex;
+     align-items: center;
+     
+}
+.navbar::-webkit-scrollbar {
+    display: none;
+  }
+.navbody1{
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    border-bottom: 1px solid rgb(158, 156, 156);
 }
 
 .content{
@@ -60,50 +72,64 @@
 .navbody{
     display: flex;
     gap: 5%;
+    flex-direction: row;
+    width: 80%;
+    /* flex-wrap: wrap; */
     overflow-x: auto;
-    /* border: 2px solid red; */
-    margin-left: 3%;
+    border-radius: 20px;
+    /* border: 2px solid green; */
+    margin-bottom: 1%;
     margin-top: 1%;
-    height: 30%;
+    /* height: auto; */
     row-gap: 10%;
+    scrollbar-width: none; 
+}
+.nextlogo{
+    /* border: 2px solid red; */
+    /* height: 80%;
+    width: 2%; */
+    display: flex;
+    align-items: center;
+    margin-right: 6%;
+    color: rgb(85, 81, 81);
+    z-index: 1000;
+    
+}
+.prevlogo{
+    /* border: 2px solid red; */
+    /* height: 80%;
+    width: 2%; */
+    display: flex;
+    align-items: center;
+    margin-left: 4%;
+    color: rgb(85, 81, 81);
+    z-index: 1000;
 }
 .navcard{
     font-size: 100%;
-    color: rgb(85, 81, 81);
-    padding: 0px 20px;
+    color: white;
+    padding: 5px 10px;
     border-radius: 20px;
     /* border: 2px solid red; */
+    background: rgba(255, 255, 255, 0.1); /* transparent white */
+    backdrop-filter: blur(10px);          /* the blur itself */
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-}
-.navcard hr{
-    margin-top: 10px;
-    border: none;
-    width: 90%;
-    height: 5%;
-    border-radius: 10px;
-    background: #ff4141;
-}
-.navcard:hover{
-    background-color: #ff4141;
-    transform: scale(1.0);
-    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 8%;
+    width: 180px;
 }
 
-.btitle{
-    background: linear-gradient(135deg, #ff7eb3, #ff758c);
-  color: white;
-  margin-top: 1%;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* flex-wrap: wrap; */
-  font-size: 180%;
-  font-weight: bold;
-  text-align: center;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-  width: 50%;
+.navcard hr{
+    margin-top: 5px;
+    border: 1px solid red;
+    width: 90%;
+    border-radius: 90px;
+    /* background: #ff4141; */
+    margin-left: 6%;
 }
 .mainbody{
     /* border: 2px solid green; */
@@ -115,8 +141,8 @@
     align-items: center;
 }
 .imgcard{
-    height: 80%;
-    width: 50%;
+    height: 100%;
+    width: 40%;
     margin-left: 18%;
     border-radius: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
@@ -145,6 +171,9 @@
     border: none;
     height: 50px;
     width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     /* border: 2px solid red; */
 }
 .imgtitle{
@@ -160,14 +189,28 @@
     margin-left: 10px;
   color: white;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding: 10px ;
+ 
 }
-
+.imgdescription a{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+    text-align: center;
+    /* gap: 2%; */
+    text-decoration: none;
+}
 @media (max-width: 768px) {
     .navbar{
-        height: 15%;
+        height: 8%;
         width: 100%;
+        scrollbar-width: none;
+         white-space: nowrap;
+         scroll-behavior: 'smooth';
+         scrollbar-width: 'none';
+         -ms-overflow-style: 'none';
     }
     .navcard{
         font-size: 88%;
@@ -177,16 +220,21 @@
         cursor: pointer;
         transition: all 0.3s ease-in-out;
     }
-    .mainbody{
+    .content{
+        height: 100%;
+        width: 100%;
         /* border: 2px solid green; */
+    }
+    .mainbody{
+        /* border: 2px solid black; */
         /* margin-left: 12%; */
-        height: 80%;
-        width: 200%;
+        height: 98%;
+        width: 100%;
         display: flex;
         justify-content: center;
         gap: 5%;
         align-items: center;
-        flex-direction: column;
+        /* flex-direction: column; */
     }
     .btns{
         height: auto;
@@ -194,28 +242,28 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        flex-direction: row;
         gap: 20px;
         /* border: 2px solid green; */
-       margin-left: 15%;
+       /* margin-left: 15%; */
      }
     .imgcard{
-        width: 55%;
+        width: 140%;
         height: 70% ;
+        margin-left: 10%;
     } 
-    .btitle{
-        width:60%;
-        margin-top: 0%;
-        /* height: 5% ; */
-        margin-left: 25%; 
-        font-size: 150%;
-        font-weight: 400;
-        text-align: center;
-        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-        width: 50%;
-        height: 20px;
-        padding: 10px;
-
-  
+    .btns button{
+        border-radius:20px ;
+        background-color: white;
+        border: none;
+        height: 35px;
+        width: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* border: 2px solid red; */
     }
+    .imgdescription p button{
+        color: rgb(87, 87, 239);
+    }
+    
 }
