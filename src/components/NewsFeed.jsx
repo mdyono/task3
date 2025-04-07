@@ -1,14 +1,18 @@
 import React, { useState ,useEffect, useRef } from 'react'
 import categories from '../assets/data'
-import { FaNewspaper ,FaHome,FaArrowCircleUp,FaArrowCircleDown} from "react-icons/fa";
-import { IoReloadCircleSharp } from "react-icons/io5";
+// import { FaNewspaper ,FaHome,FaArrowCircleUp,FaArrowCircleDown} from "react-icons/fa";
+// import { IoReloadCircleSharp } from "react-icons/io5";
 import { FcLike , FcLikePlaceholder} from "react-icons/fc";
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
-import { FaMoneyBillTrendUp } from "react-icons/fa6";
+import {  FaArrowRotateRight, FaMoneyBillTrendUp } from "react-icons/fa6";
 import { FastAverageColor } from "fast-average-color";
 import { MdSportsCricket } from "react-icons/md";
 import { GrTechnology } from "react-icons/gr";
 import { FaBookOpen} from "react-icons/fa";
+import { FaArrowUp,FaArrowDown } from "react-icons/fa6";
+import { IoMdShare } from "react-icons/io";
+
+
 // import { IoIosMore } from "react-icons/io";
 
 
@@ -21,7 +25,7 @@ const NewsFeed = () => {
     const [bgColor, setBgColor] = useState("grey"); 
     const [showMore, setShowMore] = useState(false);
     const items = categories[category];
-    const maxLength = 50;
+    const maxLength = 80;
     const navbarRef = useRef(null);
 
     useEffect(() => {
@@ -65,14 +69,14 @@ const NewsFeed = () => {
 
   return (
     <div className='body' style={{ backgroundColor: bgColor }}>
-        <div className='navbar'>
+        {/* <div className='navbar'>
           <div className='logo'>
             <div className='logo1'><FaNewspaper style={{fontSize: "200%"}} color='grey'/><div className='title'>NewsFeed</div></div>
             <div className='homelogo' onClick={()=>{window.location.reload()}}>
             <FaHome style={{fontSize: "200%"}} color='grey'/>
             </div>
            </div>
-        </div>
+        </div> */}
         <div className='navbody1'>
            <div className='prevlogo' onClick={scrollleft}><IoIosArrowDropleft color='white' size={25}/></div> 
            <div className='navbody' ref={navbarRef}>
@@ -101,19 +105,26 @@ const NewsFeed = () => {
   }}>
                     {
                     <div className='imgdescription'>
-                      <p> {showMore ? items[currentIndex].description 
-                  : items[currentIndex].description.substring(0, maxLength)+"..." }
+                      <p  style={{cursor:"pointer"}} onClick={() => setShowMore(!showMore)}> {showMore ? items[currentIndex].description 
+                  : items[currentIndex].description.substring(0, maxLength) }
                   {items[currentIndex].description.length > maxLength && (
-                    <button style={{color:"rgb(87, 87, 239)",
+                    <span 
+                    style={{
+                      // color:"rgb(87, 87, 239)",
                     borderRadius:"20px",
                     height:"23px",
-                    marginLeft:"10px",
-                    width:"90px",
+                    // marginLeft:"10px",
+                    width:"30px",
+                    fontSize:"20px",
+                    textAlign:"center",
                     border:"none",
-                    backgroundColor:" rgba(255, 255, 255, 0.2)"}} onClick={() => setShowMore(!showMore)}>
-                        {showMore ? "Show Less" :  "Show More"}
-                    </button>
+                    // backgroundColor:" rgba(255, 255, 255, 0.2)"
+                    }}
+                     onClick={() => setShowMore(!showMore)}>
+                        {showMore ? "" :  "..."}
+                    </span>
                 )}</p>
+                <div style={{display:"flex"}}>
                 <a href={items[currentIndex].url}> <button style={{color:"rgb(251, 251, 251)",
                     borderRadius:"20px",
                     height:"23px",
@@ -125,15 +136,28 @@ const NewsFeed = () => {
                     backgroundColor:" rgba(255, 255, 255, 0.2)"}} >
                         Know more...
                     </button></a>
-                  
+                    <a href="#"><button style={{color:"rgb(251, 251, 251)",
+                    borderRadius:"20px",
+                    height:"23px",
+                    marginLeft:"10px",
+                    width:"40px",
+                    marginBottom:"15px",
+                    border:"none",
+                    textDecoration:"none",
+                    backgroundColor:" rgba(255, 255, 255, 0.2)"}}>
+                    <IoMdShare />
+                      </button></a>
+                </div>
+               
                           
                     </div> }
+                    
                   </div>
                   <div className='btns' >
-                    <button onClick={()=>{like?setlike(false):setlike(true)}}>{like?<FcLike size={30}/>:<FcLikePlaceholder  size={30}/>}</button>
-                  <button  onClick={()=>{handlePrev();setlike(false);setShowMore(false)}}><FaArrowCircleUp  size={30}/></button>
-                  <button  onClick={()=>{handleNext();setlike(false);setShowMore(false)}}><FaArrowCircleDown size={30}/></button>
-                  <button  onClick={()=>{window.location.reload()}}><IoReloadCircleSharp size={35} /></button>
+                    <button style={{ backgroundColor: bgColor }} onClick={()=>{like?setlike(false):setlike(true)}}>{like?<FcLike size={30}/>:<FcLikePlaceholder  size={30}/>}</button>
+                  <button style={{ backgroundColor: bgColor }}  onClick={()=>{handlePrev();setlike(false);setShowMore(false)}}><FaArrowUp color='white' size={30}/></button>
+                  <button style={{ backgroundColor: bgColor }} onClick={()=>{handleNext();setlike(false);setShowMore(false)}}><FaArrowDown size={30}/></button>
+                  <button style={{ backgroundColor: bgColor }} onClick={()=>{window.location.reload()}}><FaArrowRotateRight  size={25} /></button>
                   </div>
 
                 </div>
