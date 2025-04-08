@@ -25,7 +25,9 @@ const NewsFeed = () => {
     const [bgColor, setBgColor] = useState("grey"); 
     const [showMore, setShowMore] = useState(false);
     const items = categories[category];
-    const maxLength = 80;
+    const [maxLength, setMaxLength] = useState(80);
+    const imgCardRef = useRef(null);
+    // const maxLength = 80;
     const navbarRef = useRef(null);
 
     useEffect(() => {
@@ -61,11 +63,33 @@ const NewsFeed = () => {
     };
 
     const scrollleft=()=>{
-     if(navbarRef.current){ navbarRef.current.scrollBy({
+     if(navbarRef.current){ 
+      navbarRef.current.scrollBy({
       left:-100,
       behavior:'smooth'
     })
   }};
+  useEffect(() => {
+    const updateMaxLength = () => {
+      if (imgCardRef.current) {
+        const width = imgCardRef.current.offsetWidth;
+        // console.log(width)
+        if (width <= 360) {
+          setMaxLength(40);
+        } else {
+          setMaxLength(80);
+        }
+      }
+    };
+
+    updateMaxLength();
+
+    window.addEventListener('resize', updateMaxLength);
+
+    return () => {
+      window.removeEventListener('resize', updateMaxLength);
+    };
+  }, []);
 
   return (
     <div className='body' style={{ backgroundColor: bgColor }}>
@@ -95,7 +119,7 @@ const NewsFeed = () => {
               <>
               
                 <div className='mainbody'>
-                  <div className='imgcard'style={{
+                  <div className='imgcard' ref={imgCardRef} style={{
     backgroundColor: "white",
     backgroundImage: `url(${items[currentIndex].img})`,
     backgroundSize: "cover", 
@@ -131,6 +155,7 @@ const NewsFeed = () => {
                     marginLeft:"10px",
                     width:"90px",
                     marginBottom:"15px",
+                    cursor:"pointer",
                     border:"none",
                     textDecoration:"none",
                     backgroundColor:" rgba(255, 255, 255, 0.2)"}} >
@@ -141,6 +166,7 @@ const NewsFeed = () => {
                     height:"23px",
                     marginLeft:"10px",
                     width:"40px",
+                    cursor:"pointer",
                     marginBottom:"15px",
                     border:"none",
                     textDecoration:"none",
@@ -154,10 +180,10 @@ const NewsFeed = () => {
                     
                   </div>
                   <div className='btns' >
-                    <button style={{ backgroundColor: bgColor }} onClick={()=>{like?setlike(false):setlike(true)}}>{like?<FcLike size={30}/>:<FcLikePlaceholder  size={30}/>}</button>
-                  <button style={{ backgroundColor: bgColor }}  onClick={()=>{handlePrev();setlike(false);setShowMore(false)}}><FaArrowUp color='white' size={30}/></button>
-                  <button style={{ backgroundColor: bgColor }} onClick={()=>{handleNext();setlike(false);setShowMore(false)}}><FaArrowDown size={30}/></button>
-                  <button style={{ backgroundColor: bgColor }} onClick={()=>{window.location.reload()}}><FaArrowRotateRight  size={25} /></button>
+                    <button style={{ backgroundColor: bgColor }} onClick={()=>{like?setlike(false):setlike(true)}}>{like?<FcLike />:<FcLikePlaceholder  />}</button>
+                  <button style={{ backgroundColor: bgColor }}  onClick={()=>{handlePrev();setlike(false);setShowMore(false)}}><FaArrowUp color='white' /></button>
+                  <button style={{ backgroundColor: bgColor }} onClick={()=>{handleNext();setlike(false);setShowMore(false)}}><FaArrowDown /></button>
+                  <button style={{ backgroundColor: bgColor }} onClick={()=>{window.location.reload()}}><FaArrowRotateRight   /></button>
                   </div>
 
                 </div>
