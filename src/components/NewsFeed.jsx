@@ -22,25 +22,25 @@ const NewsFeed = () => {
     let [category,setcategory]=useState("topstories");
     let [currentIndex, setCurrentIndex] = useState(0);
     let [like,setlike]=useState(false);
-    const [bgColor, setBgColor] = useState("grey"); 
+    // const [bgColor, setBgColor] = useState("grey"); 
     const [showMore, setShowMore] = useState(false);
     const items = categories[category];
-    const [maxLength, setMaxLength] = useState(80);
+    const [maxLength, setMaxLength] = useState(180);
     const imgCardRef = useRef(null);
     // const maxLength = 80;
     const navbarRef = useRef(null);
 
-    useEffect(() => {
-      const fac = new FastAverageColor();
-      const img = new Image();
-      img.crossOrigin = "Anonymous";
-      img.src = items[currentIndex].img;
+    // useEffect(() => {
+    //   const fac = new FastAverageColor();
+    //   const img = new Image();
+    //   img.crossOrigin = "Anonymous";
+    //   img.src = items[currentIndex].img;
   
-      img.onload = () => {
-        const color = fac.getColor(img);
-        setBgColor(color.rgb);
-      };
-    }, [currentIndex]);
+    //   img.onload = () => {
+    //     const color = fac.getColor(img);
+    //     setBgColor(color.rgb);
+    //   };
+    // }, [currentIndex]);
 
     const handleNext = () => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);      
@@ -53,6 +53,7 @@ const NewsFeed = () => {
       );
     };
 
+    
     const scrollRight = () => {
       if (navbarRef.current) {
         navbarRef.current.scrollBy({
@@ -74,10 +75,10 @@ const NewsFeed = () => {
       if (imgCardRef.current) {
         const width = imgCardRef.current.offsetWidth;
         // console.log(width)
-        if (width <= 360) {
-          setMaxLength(40);
+        if (width <= 460) {
+          setMaxLength(70);
         } else {
-          setMaxLength(80);
+          setMaxLength(180);
         }
       }
     };
@@ -92,7 +93,7 @@ const NewsFeed = () => {
   }, []);
 
   return (
-    <div className='body' style={{ backgroundColor: bgColor }}>
+    <div className='body' ref={imgCardRef} style={{ backgroundImage:  `url(${items[currentIndex].img})` }}>
         {/* <div className='navbar'>
           <div className='logo'>
             <div className='logo1'><FaNewspaper style={{fontSize: "200%"}} color='grey'/><div className='title'>NewsFeed</div></div>
@@ -104,12 +105,12 @@ const NewsFeed = () => {
         <div className='navbody1'>
            <div className='prevlogo' onClick={scrollleft}><IoIosArrowDropleft color='white' size={25}/></div> 
            <div className='navbody' ref={navbarRef}>
-            <div  className="navcard" onClick={()=>{setcategory("topstories")}}>
+            <div  className="navcard"  onClick={()=>{setcategory("topstories")}}>
               <div><FaMoneyBillTrendUp style={{marginRight:"10%"}} /></div><div>Trending{category==="topstories"?<hr style={{height:"20%"}}/>:<></>}</div>
               </div>
-            <div className="navcard" onClick={()=>{setcategory("sports")}}><div ><MdSportsCricket style={{marginRight:"10%"}}/></div><div>Sports{category==="sports"?<hr/>:<></>}</div></div>
-            <div  className="navcard" onClick={()=>{setcategory("tech")}}><div><GrTechnology style={{marginRight:"10%"}}/></div><div>Tech{category==="tech"?<hr/>:<></>}</div></div>
-           <div className="navcard" onClick={()=>{setcategory("education")}}> <div><FaBookOpen style={{marginRight:"10%"}}/></div><div>Education{category==="education"?<hr/>:<></>}</div></div>
+            <div className="navcard"  onClick={()=>{setcategory("sports")}}><div ><MdSportsCricket style={{marginRight:"10%"}}/></div><div>Sports{category==="sports"?<hr/>:<></>}</div></div>
+            <div  className="navcard"  onClick={()=>{setcategory("tech")}}><div><GrTechnology style={{marginRight:"10%"}}/></div><div>Tech{category==="tech"?<hr/>:<></>}</div></div>
+           <div className="navcard"  onClick={()=>{setcategory("education")}}> <div><FaBookOpen style={{marginRight:"10%"}}/></div><div>Education{category==="education"?<hr/>:<></>}</div></div>
            </div>
            <div className='nextlogo' onClick={scrollRight}><IoIosArrowDropright color='white' size={25}/></div>
            </div>
@@ -118,8 +119,8 @@ const NewsFeed = () => {
             items.length>0 && (
               <>
               
-                <div className='mainbody'>
-                  <div className='imgcard' ref={imgCardRef} style={{
+                {/* <div className='mainbody'> */}
+                  {/* <div className='imgcard' ref={imgCardRef} style={{
     backgroundColor: "white",
     backgroundImage: `url(${items[currentIndex].img})`,
     backgroundSize: "cover", 
@@ -178,22 +179,72 @@ const NewsFeed = () => {
                           
                     </div> }
                     
-                  </div>
-                  <div className='btns' >
-                    <button style={{ backgroundColor: bgColor }} onClick={()=>{like?setlike(false):setlike(true)}}>{like?<FcLike />:<FcLikePlaceholder  />}</button>
-                  <button style={{ backgroundColor: bgColor }}  onClick={()=>{handlePrev();setlike(false);setShowMore(false)}}><FaArrowUp color='white' /></button>
-                  <button style={{ backgroundColor: bgColor }} onClick={()=>{handleNext();setlike(false);setShowMore(false)}}><FaArrowDown /></button>
-                  <button style={{ backgroundColor: bgColor }} onClick={()=>{window.location.reload()}}><FaArrowRotateRight   /></button>
-                  </div>
+                  </div> */}
+                  
 
-                </div>
+                {/* </div> */}
+                <div className='btns' >
+                    <button  onClick={()=>{like?setlike(false):setlike(true)}}>{like?<FcLike />:<FcLikePlaceholder  />}</button>
+                  <button  onClick={()=>{handlePrev();setlike(false);setShowMore(false)}}><FaArrowUp color='white' /></button>
+                  <button  onClick={()=>{handleNext();setlike(false);setShowMore(false)}}><FaArrowDown /></button>
+                  <button  onClick={()=>{window.location.reload()}}><FaArrowRotateRight   /></button>
+                  </div>
                
               </>
             )
           }
 
         </div>
-
+        {
+                    <div className='imgdescription'>
+                      <p  style={{cursor:"pointer"}} onClick={() => setShowMore(!showMore)}> {showMore ? items[currentIndex].description 
+                  : items[currentIndex].description.substring(0, maxLength) }
+                  {items[currentIndex].description.length > maxLength && (
+                    <span 
+                    style={{
+                      // color:"rgb(87, 87, 239)",
+                    borderRadius:"20px",
+                    height:"23px",
+                    // marginLeft:"10px",
+                    width:"30px",
+                    fontSize:"20px",
+                    textAlign:"center",
+                    border:"none",
+                    // backgroundColor:" rgba(255, 255, 255, 0.2)"
+                    }}
+                     onClick={() => setShowMore(!showMore)}>
+                        {showMore ? "" :  "..."}
+                    </span>
+                )}</p>
+                <div style={{display:"flex"}}>
+                <a href={items[currentIndex].url}> <button style={{color:"rgb(251, 251, 251)",
+                    borderRadius:"20px",
+                    height:"28px",
+                    marginLeft:"10px",
+                    width:"100px",
+                    marginBottom:"15px",
+                    cursor:"pointer",
+                    border:"none",
+                    textDecoration:"none",
+                    backgroundColor:" rgba(255, 255, 255, 0.2)"}} >
+                        Know more...
+                    </button></a>
+                    <a href="#"><button style={{color:"rgb(251, 251, 251)",
+                    borderRadius:"20px",
+                    height:"28px",
+                    marginLeft:"10px",
+                    width:"40px",
+                    cursor:"pointer",
+                    marginBottom:"15px",
+                    border:"none",
+                    textDecoration:"none",
+                    backgroundColor:" rgba(255, 255, 255, 0.2)"}}>
+                    <IoMdShare />
+                      </button></a>
+                </div>
+               
+                          
+                    </div> }
             </div>
    
   )

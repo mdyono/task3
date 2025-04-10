@@ -9,8 +9,11 @@
     display: flex;
     transition: background-color 0.5s ease-in-out,
      background-image 0.5s ease-in-out;
+     background-position: center;
+     /* background-size: cover; */
     /* justify-content: center;
     align-items: center; */
+    /* border: 2px solid blue; */
     flex-direction: column;
 }
 
@@ -35,6 +38,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* border: 2px solid darkgoldenrod; */
+    background-color: rgba(32, 28, 28, 0.733);
     flex-direction: row;
     border-bottom: 1px solid rgb(158, 156, 156);
 }
@@ -107,12 +112,13 @@
 }
 .navcard{
     font-size: 100%;
-    color: white;
+    color: black;
     padding: 5px 10px;
     border-radius: 20px;
-    /* border: 2px solid red; */
-    background: rgba(255, 255, 255, 0.1); /* transparent white */
-    backdrop-filter: blur(10px);          /* the blur itself */
+    /* border: 2px solid blue; */
+    background: rgba(255, 255, 255, 0.1); 
+    background-color: white;
+    backdrop-filter: blur(10px);          
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     display: flex;
@@ -155,6 +161,8 @@
     flex-direction: column;
 }
 .btns{
+    position: absolute;
+    left: 85%;
     height: 300px;
     width: 5%;
     display: flex;
@@ -178,7 +186,7 @@
     justify-content: center;
     transform: translateY(-50%);
     /* border: 2px solid red; */
-
+background-color: black;
     
     /* border: none;
     color: white;
@@ -195,7 +203,7 @@
 }
 
 .btns button:hover{
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(15, 14, 14, 0.845);
     cursor: pointer;
     transform: translateY(-50%) scale(1.1);
 }
@@ -243,12 +251,13 @@
          -ms-overflow-style: 'none';
     }
     .navcard{
-        font-size: 88%;
+        font-size: 90%;
         padding: 0px 20px;
         border-radius: 20px;
         /* border: 2px solid red; */
         cursor: pointer;
         transition: all 0.3s ease-in-out;
+        height: 30px;
     }
     .content{
         height: 100%;
@@ -283,8 +292,8 @@
         color: white;
         border: none;
         font-size: 17px;
-        height: 30px;
-        width: 30px;
+        height: 42px;
+        width: 42px;
         display: flex;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
         align-items: center;
