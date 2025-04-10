@@ -164,6 +164,7 @@
 .btns{
     position: absolute;
     left: 85%;
+    bottom: 30%;
     height: 300px;
     width: 5%;
     display: flex;
