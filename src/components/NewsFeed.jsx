@@ -115,19 +115,15 @@ const NewsFeed = () => {
            <div className='nextlogo' onClick={scrollRight}><IoIosArrowDropright color='white' size={25}/></div>
            </div>
         <div className='content' ref={imgCardRef} style={{
-    // backgroundColor: "white",
-    backgroundImage: `url(${items[currentIndex].img})`,
-    backgroundSize: "cover", 
-    backgroundPosition: "center",
-    // objectFit:"fill"
+   backgroundColor:bgColor,
      
   }}>
           {
             items.length>0 && (
               <>
               
-                {/* <div className='mainbody'> */}
-                  {/* <div className='imgcard' ref={imgCardRef} style={{
+                <div className='mainbody'>
+                  <div className='imgcard' ref={imgCardRef} style={{
     backgroundColor: "white",
     backgroundImage: `url(${items[currentIndex].img})`,
     backgroundSize: "cover", 
@@ -135,6 +131,13 @@ const NewsFeed = () => {
     objectFit:"fill"
      
   }}>
+
+<div className='btns' >
+                    <button  onClick={()=>{like?setlike(false):setlike(true)}}>{like?<FcLike />:<FcLikePlaceholder  />}</button>
+                  <button  onClick={()=>{handlePrev();setlike(false);setShowMore(false)}}><FaArrowUp color='white' /></button>
+                  <button  onClick={()=>{handleNext();setlike(false);setShowMore(false)}}><FaArrowDown /></button>
+                  <button  onClick={()=>{window.location.reload()}}><FaArrowRotateRight   /></button>
+                  </div>
                     {
                     <div className='imgdescription'>
                       <p  style={{cursor:"pointer"}} onClick={() => setShowMore(!showMore)}> {showMore ? items[currentIndex].description 
@@ -186,18 +189,13 @@ const NewsFeed = () => {
                           
                     </div> }
                     
-                  </div> */}
-                  
-
-                {/* </div> */}
-                <div className='btns' >
-                    <button  onClick={()=>{like?setlike(false):setlike(true)}}>{like?<FcLike />:<FcLikePlaceholder  />}</button>
-                  <button  onClick={()=>{handlePrev();setlike(false);setShowMore(false)}}><FaArrowUp color='white' /></button>
-                  <button  onClick={()=>{handleNext();setlike(false);setShowMore(false)}}><FaArrowDown /></button>
-                  <button  onClick={()=>{window.location.reload()}}><FaArrowRotateRight   /></button>
                   </div>
+                
 
-                  {
+                </div>
+                
+
+                  {/* {
                     <div className='imgdescription'>
                       <p  style={{cursor:"pointer"}} onClick={() => setShowMore(!showMore)}> {showMore ? items[currentIndex].description 
                   : items[currentIndex].description.substring(0, maxLength) }
@@ -246,7 +244,7 @@ const NewsFeed = () => {
                 </div>
                
                           
-                    </div> }
+                    </div> } */}
                
               </>
             )
