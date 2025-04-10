@@ -46,11 +46,12 @@
 
 .content{
     height: 100%;
-    width: 75%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    /* border: 2px solid red; */
 }
 .logo{
     height: 40%;
@@ -141,7 +142,7 @@
     /* border: 2px solid green; */
     /* margin-left: 22%; */
     height: 90%;
-    width: 110%;
+    width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -214,6 +215,9 @@ background-color: black;
 .imgdescription{
     /* border: 2px solid red; */
     color: white;
+    width: 100%;
+    position: absolute;
+    bottom: 0%;
   background: rgba(79, 70, 70, 0.399);  
   backdrop-filter: blur(10px);
   border-radius: 0 0 16px 16px;
