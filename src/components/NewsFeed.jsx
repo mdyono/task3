@@ -103,7 +103,7 @@ const NewsFeed = () => {
            </div>
         </div> */}
         <div className='navbody1'>
-           <div className='prevlogo' onClick={scrollleft}><IoIosArrowDropleft color='white' size={25}/></div> 
+           <div className='prevlogo' onClick={scrollleft}><IoIosArrowDropleft color='white' size={35}/></div> 
            <div className='navbody' ref={navbarRef}>
             <div  className="navcard"  onClick={()=>{setcategory("topstories")}}>
               <div><FaMoneyBillTrendUp style={{marginRight:"10%"}} /></div><div>Trending{category==="topstories"?<hr style={{height:"20%"}}/>:<></>}</div>
@@ -112,7 +112,7 @@ const NewsFeed = () => {
             <div  className="navcard"  onClick={()=>{setcategory("tech")}}><div><GrTechnology style={{marginRight:"10%"}}/></div><div>Tech{category==="tech"?<hr/>:<></>}</div></div>
            <div className="navcard"  onClick={()=>{setcategory("education")}}> <div><FaBookOpen style={{marginRight:"10%"}}/></div><div>Education{category==="education"?<hr/>:<></>}</div></div>
            </div>
-           <div className='nextlogo' onClick={scrollRight}><IoIosArrowDropright color='white' size={25}/></div>
+           <div className='nextlogo' onClick={scrollRight}><IoIosArrowDropright color='white' size={35}/></div>
            </div>
         <div className='content' ref={imgCardRef} style={{
    backgroundColor:bgColor,
@@ -162,26 +162,28 @@ const NewsFeed = () => {
                 <div style={{display:"flex"}}>
                 <a href={items[currentIndex].url}> <button style={{color:"rgb(251, 251, 251)",
                     borderRadius:"20px",
-                    height:"23px",
+                    height:"40px",
                     marginLeft:"10px",
-                    width:"90px",
+                    width:"130px",
                     marginBottom:"15px",
                     cursor:"pointer",
                     border:"none",
+                    fontSize:"18px",
                     textDecoration:"none",
-                    backgroundColor:" rgba(255, 255, 255, 0.2)"}} >
+                    backgroundColor:" rgba(28, 27, 27, 0.48)"}} >
                         Know more...
                     </button></a>
                     <a href="#"><button style={{color:"rgb(251, 251, 251)",
                     borderRadius:"20px",
-                    height:"23px",
+                    height:"40px",
                     marginLeft:"10px",
                     width:"40px",
                     cursor:"pointer",
+                    fontSize:"18px",
                     marginBottom:"15px",
                     border:"none",
                     textDecoration:"none",
-                    backgroundColor:" rgba(255, 255, 255, 0.2)"}}>
+                    backgroundColor:" rgba(28, 27, 27, 0.48)"}}>
                     <IoMdShare />
                       </button></a>
                 </div>
@@ -251,56 +253,7 @@ const NewsFeed = () => {
           }
 
         </div>
-        {/* {
-                    <div className='imgdescription'>
-                      <p  style={{cursor:"pointer"}} onClick={() => setShowMore(!showMore)}> {showMore ? items[currentIndex].description 
-                  : items[currentIndex].description.substring(0, maxLength) }
-                  {items[currentIndex].description.length > maxLength && (
-                    <span 
-                    style={{
-                      // color:"rgb(87, 87, 239)",
-                    borderRadius:"20px",
-                    height:"23px",
-                    // marginLeft:"10px",
-                    width:"30px",
-                    fontSize:"20px",
-                    textAlign:"center",
-                    border:"none",
-                    // backgroundColor:" rgba(255, 255, 255, 0.2)"
-                    }}
-                     onClick={() => setShowMore(!showMore)}>
-                        {showMore ? "" :  "..."}
-                    </span>
-                )}</p>
-                <div style={{display:"flex"}}>
-                <a href={items[currentIndex].url}> <button style={{color:"rgb(251, 251, 251)",
-                    borderRadius:"20px",
-                    height:"28px",
-                    marginLeft:"10px",
-                    width:"100px",
-                    marginBottom:"15px",
-                    cursor:"pointer",
-                    border:"none",
-                    textDecoration:"none",
-                    backgroundColor:" rgba(255, 255, 255, 0.2)"}} >
-                        Know more...
-                    </button></a>
-                    <a href="#"><button style={{color:"rgb(251, 251, 251)",
-                    borderRadius:"20px",
-                    height:"28px",
-                    marginLeft:"10px",
-                    width:"40px",
-                    cursor:"pointer",
-                    marginBottom:"15px",
-                    border:"none",
-                    textDecoration:"none",
-                    backgroundColor:" rgba(255, 255, 255, 0.2)"}}>
-                    <IoMdShare />
-                      </button></a>
-                </div>
-               
-                          
-                    </div> } */}
+       
             </div>
    
   )

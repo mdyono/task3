@@ -113,7 +113,7 @@
 }
 .navcard{
     font-size: 100%;
-    color: black;
+    color: rgb(80, 78, 78);
     padding: 5px 10px;
     border-radius: 20px;
     /* border: 2px solid blue; */
@@ -126,6 +126,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: row;
+    font-weight: 800;
     gap: 8%;
     width: 180px;
 }
@@ -241,6 +242,7 @@ background-color: black;
          scrollbar-width: 'none';
          -ms-overflow-style: 'none';
     }
+   
     .navcard{
         font-size: 90%;
         padding: 0px 20px;
@@ -249,6 +251,7 @@ background-color: black;
         cursor: pointer;
         transition: all 0.3s ease-in-out;
         height: 30px;
+        padding: 5px  20px;
     }
     .content{
         height: 100%;
@@ -301,7 +304,7 @@ background-color: black;
         border-radius: 0%;
     } 
     .imgdescription p{
-        font-size: 16px;
+        font-size: 18px;
     }
     .imgdescription p button{
         color: rgb(87, 87, 239);
