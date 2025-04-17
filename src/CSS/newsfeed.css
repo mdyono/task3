@@ -134,7 +134,7 @@
 }
 .imgcard{
     height: 70vh;
-    width: 30%;
+    width: 28%;
     /* width: 440px; */
     border-radius: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
@@ -278,6 +278,15 @@ background-color: black;
         gap: 10%;
         /* border: 2px solid green; */
        
+    }
+    .imgdescription{
+        /* border: 2px solid green; */
+        /* color: white;
+        width: 100%;
+      background: rgba(79, 70, 70, 0.399);  
+      backdrop-filter: blur(10px); */
+      border-radius: 0px;
+     
     }
     .mainbody{
         /* border: 2px solid black; */
