@@ -258,9 +258,9 @@ background-color: black;
         padding: 5px  20px;
     }
     .content{
-        height: 90vh;
+        height: 80vh;
         width: 100%;
-        /* border: 2px solid green; */
+        border: 2px solid green;
     }
     .btns{
         position: absolute;
