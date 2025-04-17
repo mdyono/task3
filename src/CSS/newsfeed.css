@@ -224,7 +224,7 @@ background-color: black;
 @media (max-width: 575.98px) {
 
     .body{
-        height: 85vh;
+        height: calc(var(--vh, 1vh) * 100);
         width: 100%;
         display: flex;
         transition: background-color 0.5s ease-in-out,
@@ -259,7 +259,8 @@ background-color: black;
         padding: 5px  20px;
     }
     .content{
-        height: 85vh;
+        /* height: 85vh; */
+        height: calc(var(--vh, 1vh) * 100);
         width: 100%;
         /* border: 2px solid green; */
     }
