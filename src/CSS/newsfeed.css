@@ -16,6 +16,7 @@
     /* border: 2px solid blue; */
     flex-direction: column;
     overflow: hidden;
+    overflow-y: hidden;
 }
 .navbody1{
     height: 10%;
@@ -264,6 +265,7 @@ background-color: black;
         width: 100%;
         /* border: 2px solid green; */
     }
+   
     .btns{
         position: absolute;
         left: 120%;
@@ -279,19 +281,11 @@ background-color: black;
         /* border: 2px solid green; */
        
     }
-    .imgdescription{
-        /* border: 2px solid green; */
-        /* color: white;
-        width: 100%;
-      background: rgba(79, 70, 70, 0.399);  
-      backdrop-filter: blur(10px); */
-      border-radius: 0px;
-     
-    }
+   
     .mainbody{
         /* border: 2px solid black; */
         /* margin-top: 12%; */
-        height: 100%;
+        /* height: auto; */
         width: 100%;
        
         display: flex;
