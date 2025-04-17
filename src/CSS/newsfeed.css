@@ -224,7 +224,7 @@ background-color: black;
 @media (max-width: 575.98px) {
 
     .body{
-        height: 100vh;
+        height: 85vh;
         width: 100%;
         display: flex;
         transition: background-color 0.5s ease-in-out,
@@ -236,6 +236,7 @@ background-color: black;
         /* border: 2px solid blue; */
         flex-direction: column;
         overflow: hidden;
+        overflow-y: hidden;
     }
     .navbar{
         height: 8%;
@@ -258,9 +259,9 @@ background-color: black;
         padding: 5px  20px;
     }
     .content{
-        height: 80vh;
+        height: 85vh;
         width: 100%;
-        border: 2px solid green;
+        /* border: 2px solid green; */
     }
     .btns{
         position: absolute;
