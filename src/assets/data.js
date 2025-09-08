@@ -2,7 +2,7 @@ let categories={
     topstories:[{
         id:1,
         img:'/images/trend1.jpg',
-        description: "A devastating earthquake in Myanmar has claimed 1,644 lives, prompting the arrival of international aid. In response to the disaster, anti-coup forces have temporarily paused fighting to allow relief efforts. ",
+        description: "a devastating earthquake in Myanmar has claimed 1,644 lives, prompting the arrival of international aid. In response to the disaster, anti-coup forces have temporarily paused fighting to allow relief efforts. ",
         type:"Trending",
         url:"https://www.hindustantimes.com/world-news/myanmar-earthquake-1-644-dead-foreign-aid-arrives-anti-coup-forces-pause-fighting-10-points-101743294153619.html"
     },{
