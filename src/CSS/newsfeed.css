@@ -3,21 +3,40 @@
     padding: 0px;
     font-family: 'Open Sans', sans-serif;
 }
-.body{
+/* .body{
     height: 100dvh;
     width: 100%;
     display: flex;
     transition: background-color 0.5s ease-in-out,
      background-image 0.5s ease-in-out;
      background-position: center;
-     /* background-size: cover; */
-    /* justify-content: center;
-    align-items: center; */
-    /* border: 2px solid blue; */
     flex-direction: column;
     overflow: hidden;
     overflow-y: hidden;
+} */
+ html, body {
+  height: -webkit-fill-available; /* iOS Safari */
+  min-height: -webkit-fill-available;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  height: calc(var(--vh, 1vh) * 100); /* use JS variable */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-position: center;
+  overflow-x: hidden;
+  overflow-y: auto; /* allow scrolling */
+}
+
+.body { /* keep your styles for backgroundColor from JSX */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .navbody1{
     height: 10%;
     display: flex;
