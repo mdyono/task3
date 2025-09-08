@@ -94,7 +94,7 @@ const NewsFeed = () => {
   }, []);
 
   return (
-    <div className='body' style={{ backgroundColor: bgColor, height: "calc(var(--vh, 1vh) * 100)" }}>
+    <div className='body' style={{ backgroundColor: bgColor, height: "calc(var(--vh, 1vh) * 100)"  }}>
       {/* <div className='navbar'>
           <div className='logo'>
             <div className='logo1'><FaNewspaper style={{fontSize: "200%"}} color='grey'/><div className='title'>NewsFeed</div></div>

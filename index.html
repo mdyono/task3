@@ -18,7 +18,7 @@
       let vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty('--vh', `${vh}px`);
     </script> -->
-    <script>
+    <!-- <script>
       function setVH() {
         let vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
@@ -28,7 +28,16 @@
       window.addEventListener('load', setVH);
       // Run it on resize (keyboard open, orientation change, etc.)
       window.addEventListener('resize', setVH);
-    </script>
+    </script> -->
+     <script>
+    function setVH() {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    setVH(); // run immediately
+    window.addEventListener('resize', setVH);
+  </script>
 
+  
   </body>
 </html>
