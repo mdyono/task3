@@ -14,10 +14,17 @@
     overflow: hidden;
     overflow-y: hidden;
 } */
- html, body {
-  height: -webkit-fill-available; /* iOS Safari */
+ /* html, body {
+  height: -webkit-fill-available;
   min-height: -webkit-fill-available;
+} */
+ html, body {
+  height: -webkit-fill-available;
+  min-height: -webkit-fill-available;
+  margin: 0;
+  padding: 0;
 }
+
 
 body {
   margin: 0;
@@ -246,7 +253,8 @@ background-color: black;
 
     .body{
         /* height: calc(var(--vh, 1vh) * 100); */
-        height: calc(var(--vh) * 100);
+        /* height: calc(var(--vh) * 100); */
+  height: calc(var(--vh, 1vh) * 100);
 
         width: 100%;
         display: flex;
@@ -284,7 +292,9 @@ background-color: black;
     .content{
         /* height: 85vh; */
         /* height: calc(var(--vh, 1vh) * 100); */
-        height: calc(var(--vh) * 100);
+        /* height: calc(var(--vh) * 100); */
+          height: calc(var(--vh, 1vh) * 100);
+
         width: 100%;
         /* border: 2px solid green; */
     }
